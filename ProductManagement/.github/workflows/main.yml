@@ -26,3 +26,11 @@ jobs:
         run:
           mvn clean
           mvn -B package --file pom.xml
+
+      - name: Build Docker Image
+        uses: actions/build-push-action@v3
+        with:
+          context: .
+          dockerfile: dockerfile
+          push: false
+          tags:
